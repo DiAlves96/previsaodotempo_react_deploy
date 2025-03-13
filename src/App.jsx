@@ -23,15 +23,24 @@ function App() {
   }
 
   return (
-    <div className='container'>
-      <h1>Previsão do Tempo</h1>
-      <input ref={inputref} type="text" placeholder='Digite o nome da cidade' />
-      <button onClick={searchCity}>Buscar</button>
+    <div>
+      <div className="kenburns-bg"></div>
 
-      {weather && <Weatherinfor weather={weather}/>}
-      {weather5Days && <Weatherinfor5Days weather5Days={weather5Days}/>}
+      <div className="container">
+        <h1>Previsão do Tempo</h1>
+        <input
+          ref={inputref}
+          type="text"
+          placeholder="Digite o nome da cidade"
+          onKeyDown={(e) => e.key === "Enter" && searchCity()}
+        />
+        <button onClick={searchCity}>Buscar</button>
+
+        {weather && <Weatherinfor weather={weather} />}
+        {weather5Days && <Weatherinfor5Days weather5Days={weather5Days} />}
+      </div>
     </div>
-  )
+  );
 }
 
 export default App
